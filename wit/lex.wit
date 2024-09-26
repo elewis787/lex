@@ -1,0 +1,5 @@
+package elewis787:lex@0.0.1;
+
+world word {  
+    export count: func(s: string, sub: string) -> u32;
+}
