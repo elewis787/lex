@@ -4,12 +4,13 @@
 package word
 
 import (
+	"unsafe"
 	"github.com/bytecodealliance/wasm-tools-go/cm"
 )
 
 //go:wasmexport count
 //export count
-func wasmexport_Count(s0 *uint8, s1 uint32, sub0 *uint8, sub1 uint32) (result0 uint32) {
+func wasmexport_Count(s0 unsafe.Pointer, s1 uint32, sub0 unsafe.Pointer, sub1 uint32) (result0 uint32) {
 	s := cm.LiftString[string]((*uint8)(s0), (uint32)(s1))
 	sub := cm.LiftString[string]((*uint8)(sub0), (uint32)(sub1))
 	result := Exports.Count(s, sub)

@@ -15,7 +15,7 @@ reactor: $(wildcard wasi_snapshot_preview1.reactor.wasm) download-reactor
 	wasm-tools component new -o main.component.wasm --adapt wasi_snapshot_preview1=wasi_snapshot_preview1.reactor.wasm main.embed.wasm
 
 command: $(wildcard wasi_snapshot_preview1.command.wasm) download-command build-wasip1-tiny
-	wasm-tools component embed --world word ./wit/lex.wit main.wasm -o main.embed.wasm
+	wasm-tools component embed --world word ./wit main.wasm -o main.embed.wasm
 	wasm-tools component new -o main.component.wasm --adapt wasi_snapshot_preview1=wasi_snapshot_preview1.command.wasm main.embed.wasm
 
 wat: ; wasm-tools parse -t main.wasm -o main.wat
