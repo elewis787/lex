@@ -2,7 +2,8 @@
 
 default: wit-go
 
-wit-go: ; wit-bindgen-go generate --world word --out ./gen/go/ ./wit
+wit-go-guest: ; wit-bindgen-go generate --world guest --out ./gen/go/ ./wit
+wit-go-host: ; wit-bindgen-go generate --world host --out ./gen/go/ ./wit
 
 build-wasip1-go: ; GOOS=wasip1 GOARCH=wasm go build -o main.wasm main.go
 
